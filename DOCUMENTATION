@@ -1,0 +1,7 @@
+How to download SamSploit:
+
+Step 1: Open terminal or CMD
+Step 2: type the following command: 'git clone https://github.com/SamOBoy97/SamSploit'
+Step 3: Go to the directory
+Step 4: Type 'sudo python3 SJ_HAX.py'
+
