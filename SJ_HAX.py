@@ -14,11 +14,6 @@ def Mac_Changer(new_mac):
 		print("An error occoured")
 
 
-def PacketSender(duration,ip):
-	try:
-		subprocess.call('ping -t ' + duration + " " + ip,shell=True)
-	except:
-		print("An error occoured")
 
 def VulnScannerCOMPUTER():
 	ip3 = input("Enter ip: ")
@@ -76,7 +71,7 @@ while True:
 		if main == "1":
 			ip_addr = input("Enter ip: ")
 			dur = input("Enter duration: ")
-			PacketSender(dur,ip_addr)
+			subprocess.call("ping -t " + dur + " " + ip_addr,shell=True)
 		if main == "2":
 			ip_address = input("Enter ip: ")
 			port_number = input("Enter port number: ")
