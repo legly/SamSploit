@@ -3,6 +3,7 @@
 # GitHub: https://www.github.com/SamOBoy97
 import socket
 import requests
+import subprocess
 try:
 	import OperatingSys
 	from OperatingSys import WindowsPacketSender
@@ -13,7 +14,10 @@ except:
 	print("FILES MISSING!")
 	exit()
 import subprocess
-
+try:
+        import scapy.all as scapy
+except:
+        subprocess.call("pip install scapy")
 # MODULES
 
 
@@ -23,17 +27,17 @@ def Web_HTML_Extracter():
 	html = requests.get(URL)
 	print(html.text)
 
+print("(1) Windows/packet_sender")
+print("(2) MacOS/Linux packet sender")
+print("(3) Windows/Vulnerability_scanner")
+print("(4) MacOS/Vulnerability_scanner")
+print("(5) Linux/Vulnerability_scanner")
+print("(6) Nmap port scanner")
+print("(7) Port Scanner")
+print("(8) Website Vulnerability Scanner")
+print("(9) Website/HTML_EXTRACTER")
+print("(0) EXIT")
 while True:
-	print("(1) Windows/packet_sender")
-	print("(2) MacOS/Linux packet sender")
-	print("(3) Windows/Vulnerability_scanner")
-	print("(4) MacOS/Vulnerability_scanner")
-	print("(5) Linux/Vulnerability_scanner")
-	print("(6) Nmap port scanner")
-	print("(7) Port Scanner")
-	print("(8) Mac changer")
-	print("(9) Website/HTML_EXTRACTER")
-	print("(0) EXIT")
 	main = input(">>> ")
 	if main == '1':
 		WindowsPacketSender()
@@ -61,7 +65,17 @@ while True:
 		except:
 			print("PORT IS CLOSED")
 	if main == '8':
-		Mac_Changer()
+		IP = input("Enter ip: ")
+		print("For example: https://samsploit.w3spaces.com")
+		URL = input("Enter URL: ")
+		subprocess.call("nmap -O " + IP,shell=True)
+		try:
+			subprocess.call("ping " + IP,shell=True)
+		except:
+			pass
+		subprocess.call("nslookup " + URL,shell=True)
+		subprocess.call("traceroute -m 3 " + IP,shell=True)
+		subprocess.call("tracert " + IP,shell=True)
 	if main == '9':
 		Web_HTML_Extracter()
 	if main == '0':
